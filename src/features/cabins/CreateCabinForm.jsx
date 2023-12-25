@@ -13,7 +13,7 @@ import Textarea from "../../ui/Textarea";
 import FormRow from "../../ui/FormRowComponent";
 
 //
-function CreateCabinForm({ cabinToEdit = {} }) {
+function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   const { id: editId, ...editValues } = cabinToEdit;
   const isEditSession = Boolean(editId);
 
@@ -44,6 +44,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
         {
           onSuccess: (data) => {
             reset();
+            onCloseModal?.();
           },
         }
       );
@@ -54,17 +55,10 @@ function CreateCabinForm({ cabinToEdit = {} }) {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit, onError)}>
-      {/* <FormRow>
-        <Label htmlFor="name">Cabin name</Label>
-        <Input
-          type="text"
-          id="name"
-          {...register("name", { required: "This field is required" })}
-        />
-        {errors?.name?.message && <Error>{errors.name.message}</Error>}
-      </FormRow> */}
-
+    <Form
+      onSubmit={handleSubmit(onSubmit, onError)}
+      type={onCloseModal ? "modal" : "regular"}
+    >
       <FormRow label="Cabin name" error={errors?.name?.message}>
         {/* <Label htmlFor="name">Cabin name</Label> */}
         <Input
@@ -153,7 +147,11 @@ function CreateCabinForm({ cabinToEdit = {} }) {
 
       <FormRow>
         {/* type is an HTML attribute! */}
-        <Button variation="secondary" type="reset">
+        <Button
+          variation="secondary"
+          type="reset"
+          onClick={() => onCloseModal?.()}
+        >
           Cancel
         </Button>
         <Button disabled={isCreating}>

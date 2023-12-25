@@ -1,4 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import { HiXMark } from "react-icons/hi2";
 import styled from "styled-components";
+import { createPortal } from "react-dom";
 
 const StyledModal = styled.div`
   position: fixed;
@@ -48,3 +52,23 @@ const Button = styled.button`
     color: var(--color-grey-500);
   }
 `;
+
+//
+
+function Modal({ children, onClose }) {
+  // it's benefit to avoid conflix with the css property
+  // it's like a tunel that connect this modal to body
+  return createPortal(
+    <Overlay>
+      <StyledModal>
+        <Button onClick={onClose}>
+          <HiXMark />
+        </Button>
+        <div> {children} </div>{" "}
+      </StyledModal>
+    </Overlay>,
+    document.body
+  );
+}
+
+export default Modal;
