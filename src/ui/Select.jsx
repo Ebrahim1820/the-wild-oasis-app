@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import styled from "styled-components";
 
@@ -14,3 +15,21 @@ const StyledSelect = styled.select`
   font-weight: 500;
   box-shadow: var(--shadow-sm);
 `;
+
+// if we have multipale props to receice
+// and pass them done to other element
+// we can use '...props'
+function Select({ options, value, onChange, ...props }) {
+  console.log(value);
+  return (
+    <StyledSelect value={value} {...props} onChange={onChange}>
+      {options.map((option) => (
+        <option value={option.value} key={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </StyledSelect>
+  );
+}
+
+export default Select;
