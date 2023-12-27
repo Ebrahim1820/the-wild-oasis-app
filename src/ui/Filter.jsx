@@ -63,14 +63,6 @@ function Filter({ filterField, filterOptions }) {
         </FilterButton>
       ))}
     </StyledFilter>
-
-    // <FilterButton onClick={() => handleClick("no-discount")}>
-    //   No discount
-    // </FilterButton>
-    // <FilterButton onClick={() => handleClick("with-discount")}>
-    //   With discount
-    // </FilterButton>
-    // </StyledFilter>
   );
 }
 
