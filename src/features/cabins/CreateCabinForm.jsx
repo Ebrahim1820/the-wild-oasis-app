@@ -111,13 +111,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
           type="number"
           id="discount"
           defaultValue={0}
-          {...register("discount", {
-            required: "This field is required",
-            min: {
-              value: 1,
-              message: "Discount should be less than regular price",
-            },
-          })}
+          {...register("discount")}
         />
       </FormRow>
 
@@ -127,7 +121,10 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
           id="description"
           disabled={isWorking}
           defaultValue=""
-          {...register("description", { required: "This field is required" })}
+          {...register(
+            "description"
+            //  { required: "This field is required" }
+          )}
         />
       </FormRow>
 
