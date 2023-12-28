@@ -24,14 +24,18 @@ export function useBookings() {
   const [field, direction] = sortByRaw.split("-");
   const sortBy = { field, direction };
 
-  const {
-    isLoading,
-    data: bookings,
-    error,
-  } = useQuery({
-    queryKey: ["bookings", filter, sortBy], // by adding filter to the list when we select different filter, the data will refetch from server
-    queryFn: () => getBookings({ filter, sortBy }),
+  // PAGINATION
+
+  const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));
+
+  const { isLoading, data, error } = useQuery({
+    queryKey: ["bookings", filter, sortBy, page], // by adding filter to the list when we select different filter, the data will refetch from server
+    queryFn: () => getBookings({ filter, sortBy, page }),
   });
 
-  return { bookings, isLoading, error };
+  // Perform null or undefined check for data
+  const bookings = data?.data; // Assuming data is an object with a data property
+  const count = data?.count;
+
+  return { bookings, isLoading, error, count };
 }
