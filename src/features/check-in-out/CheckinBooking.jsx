@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useMoveBack } from "../../hooks/useMoveBack";
+import { formatCurrency } from "../../utils/helpers";
+import { useChecking } from "./useChecking";
+import { useSettings } from "../settings/useSettings";
 
 import styled from "styled-components";
 import BookingDataBox from "../../features/bookings/BookingDataBox";
@@ -12,9 +15,6 @@ import ButtonText from "../../ui/ButtonText";
 import useBooking from "../bookings/useBooking";
 import Spinner from "../../ui/Spinner";
 import Checkbox from "../../ui/Checkbox";
-import { formatCurrency } from "../../utils/helpers";
-import { useChecking } from "./useChecking";
-import { useSettings } from "../settings/useSettings";
 
 const Box = styled.div`
   /* Box */
