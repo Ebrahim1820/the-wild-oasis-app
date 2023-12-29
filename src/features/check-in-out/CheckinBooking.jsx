@@ -13,7 +13,7 @@ import useBooking from "../bookings/useBooking";
 import Spinner from "../../ui/Spinner";
 import Checkbox from "../../ui/Checkbox";
 import { formatCurrency } from "../../utils/helpers";
-import { useChecking } from "../../hooks/useChecking";
+import { useChecking } from "./useChecking";
 import { useSettings } from "../settings/useSettings";
 
 const Box = styled.div`

@@ -48,6 +48,9 @@ function Filter({ filterField, filterOptions }) {
   function handleClick(value) {
     searchParams.set(filterField, value);
 
+    // when we reset new filter we need to reset the page to start from 1
+    if (searchParams.get("page")) searchParams.set("page", 1);
+
     setSearchParams(searchParams);
   }
 
