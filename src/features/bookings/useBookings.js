@@ -22,15 +22,12 @@ export function useBookings() {
   // can use method and add method on apiBooking
   // to pass multipale filter we can use list of filter objects
   // { field: "totalPrice", value: 5000, method: "gte" };
-
   // SORT
-
   const sortByRaw = searchParams.get("sortBy") || "startDate-desc";
   const [field, direction] = sortByRaw.split("-");
   const sortBy = { field, direction };
 
   // PAGINATION
-
   const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));
 
   // QUERY
