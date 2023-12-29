@@ -15,7 +15,7 @@ export function useLogin() {
       // It allow us to set manually data to react query cache
       // So we will take the newly logged in user
       // and manually add them to the React Query cache.
-      queryClient.getQueriesData(["user"], user);
+      queryClient.setQueryData(["user"], user.user);
       // 'replace' will erease the place that we were erlier
       // otherwise back button will not work
       navigate("/dashboard", { replace: true });
