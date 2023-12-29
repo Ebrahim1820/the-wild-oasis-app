@@ -17,7 +17,16 @@ function LoginForm() {
     e.preventDefault();
     if (!email || !password) return;
 
-    login({ email, password });
+    login(
+      { email, password },
+      {
+        // To make empty email field and password
+        // if there is an error during login
+        onSettled: () => {
+          setEmail(""), setPassword("");
+        },
+      }
+    );
   }
 
   return (
