@@ -2,8 +2,9 @@ import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRowComponent";
 import Input from "../../ui/Input";
-import { useForm } from "react-hook-form";
 import useSignup from "./useSignup";
+
+import { useForm } from "react-hook-form";
 
 // Email regex: /\S+@\S+\.\S+/
 
