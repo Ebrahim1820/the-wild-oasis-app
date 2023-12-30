@@ -1,10 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { Singup } from "../../services/apiAuth";
+import { singUp } from "../../services/apiAuth";
 
 function useSignup() {
   const { mutate: signup, isLoading } = useMutation({
-    mutationFn: Singup,
+    mutationFn: singUp,
 
     onSuccess: () => {
       toast.success(
