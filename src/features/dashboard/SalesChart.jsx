@@ -67,7 +67,7 @@ function SalesChart({ bookings, numDays }) {
 
   const data = allDates.map((date) => {
     return {
-      label: format(date, "MM dd"),
+      label: format(date, "MMM dd"),
 
       // here we filter bookings based on specific date and created date
       // we check if the date of created booking is = with the date of showing statistics
@@ -98,7 +98,11 @@ function SalesChart({ bookings, numDays }) {
 
   return (
     <StyledSalesChart>
-      <Heading as="h2"> Sales </Heading>
+      <Heading as="h2">
+        {" "}
+        Sales from {format(allDates.at(0), "MMM dd yyyy")} &mdash;{" "}
+        {format(allDates.at(-1), "MMM dd yyyy")}
+      </Heading>
 
       <ResponsiveContainer height={300} width="100%">
         <AreaChart data={data}>
