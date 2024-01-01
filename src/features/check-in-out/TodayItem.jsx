@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import styled from "styled-components";
 
-const StyledTodayItem = styled.li`
+export const StyledTodayItem = styled.li`
   display: grid;
   grid-template-columns: 9rem 2rem 1fr 7rem 9rem;
   gap: 1.2rem;
@@ -15,6 +16,6 @@ const StyledTodayItem = styled.li`
   }
 `;
 
-const Guest = styled.div`
+export const Guest = styled.div`
   font-weight: 500;
 `;
