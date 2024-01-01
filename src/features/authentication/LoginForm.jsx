@@ -8,8 +8,8 @@ import useLogin from "./useLogin";
 // import { Login } from "../../services/apiAuth";
 
 function LoginForm() {
-  const [email, setEmail] = useState("ebrahim1@gmail.com");
-  const [password, setPassword] = useState("ebi123456");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const { login, isLoading } = useLogin();
 
