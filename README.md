@@ -1,6 +1,6 @@
 # The Wild Oasis
 
-Main project of The Wild Oasis, which user can book the hotel, check-in/check-out by React-vite
+Main project of The Wild Oasis, which user can book the hotel, check-in/check-out. Built with react Query and Supabase as backend and database.
 
 Currently, two official plugins are available:
 
