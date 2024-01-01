@@ -94,6 +94,9 @@ function Toggle({ id }) {
   const { openId, close, open, setPosition } = useContext(MenusContext);
 
   function handleClick(e) {
+    // It will stop travel event upforther to the dom
+    e.stopPropagation();
+
     const rect = e.target.closest("button").getBoundingClientRect();
 
     setPosition({
@@ -114,7 +117,10 @@ function Toggle({ id }) {
 function List({ id, children }) {
   const { openId, position, close } = useContext(MenusContext);
 
-  const ref = useOutsideClick(close);
+  // const ref = useOutsideClick(close);
+  // 'false' will set listenCaturing again to false
+  // then by clicking again on menu it will close
+  const ref = useOutsideClick(close, false);
 
   if (openId !== id) return null;
 

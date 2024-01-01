@@ -8,13 +8,13 @@ import Button from "../../ui/Button";
 import ButtonText from "../../ui/ButtonText";
 import useBooking from "./useBooking";
 import Spinner from "../../ui/Spinner";
-
-import { useMoveBack } from "../../hooks/useMoveBack";
-import { useNavigate } from "react-router-dom";
-import { useCheckout } from "../check-in-out/useCheckout";
 import useDeleteBooking from "./useDeleteBooking";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
+import { useMoveBack } from "../../hooks/useMoveBack";
+import { useNavigate } from "react-router-dom";
+import { useCheckout } from "../check-in-out/useCheckout";
+import Empty from "../../ui/Empty";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -26,16 +26,18 @@ function BookingDetail() {
   const { booking, isLoading } = useBooking();
 
   const navigate = useNavigate();
-
-  const { id, status } = booking;
-
   const moveBack = useMoveBack();
 
   const { checkout, isCheckingOut } = useCheckout();
 
   const { deleteBooking, isBookingDeleting } = useDeleteBooking();
 
+  const { id, status } = booking;
+
   if (isLoading) return <Spinner />;
+
+  // To handle error when these is no booking with specific id
+  if (!booking.status) return <Empty resourceName="booking with this ID" />;
 
   const statusToTagName = {
     unconfirmed: "blue",
