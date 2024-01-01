@@ -1,6 +1,6 @@
-# React + Vite
+# The Wild Oasis
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Main project of The Wild Oasis, which user can book the hotel, check-in/check-out by React-vite
 
 Currently, two official plugins are available:
 
